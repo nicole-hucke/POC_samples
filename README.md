@@ -3,7 +3,7 @@
 
 ## Things to do: 
 - [x] Compensate all stilling well pressure data and convert to water depths - *Nicole*.
-- [ ] Separate all piezometer files by field seasons, leaving one large hydrograph by season - *Korvin*.
+- [x] Separate all piezometer files by field seasons, leaving one large hydrograph by season - *Korvin*.
       
       These field seasons should be:  - Summer 2021 (July to August)
                                       - Spring 2022 (March to May)
@@ -20,7 +20,7 @@
       This is to see if there are any considerable time lags between peaks.
       Feel free to use whatever software that works best for you to do this!
       
-- [ ] Write down ALL samples we have stored for POC and sort by chronological order. - *Korvin (Nicole will help with sample date and time)*. 
+- [x] Write down ALL samples we have stored for POC and sort by chronological order. - *Korvin (Nicole will help with sample date and time)*. 
 
       Some samples will not have any dates on them. For this we will look into field notebooks from previous seasons.
       The end product of this step should be a CSV file with all the samples ID and date in chronollogical order.
