@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Jul 19 13:26:47 2023
+Created on Tue Jul 18 16:48:35 2023
 
 @author: tacob
 """
-
 import pandas as pd
 import matplotlib.pyplot as plt
 
 # Read the first CSV file into a DataFrame
-df1 = pd.read_csv('C:/Users/tacob/OneDrive - University of Idaho/Summer Work 23/Raw CSV/P4(1).csv')
-df2 = pd.read_csv('C:/Users/tacob/OneDrive - University of Idaho/Summer Work 23/Raw CSV/P5(1).csv')
-df3 = pd.read_csv('C:/Users/tacob/OneDrive - University of Idaho/Summer Work 23/Raw CSV/P6(1).csv')
+df1 = pd.read_csv('C:/Users/tacob/OneDrive - University of Idaho/Summer Work 23/Raw CSV/P1(1).csv')
+df2 = pd.read_csv('C:/Users/tacob/OneDrive - University of Idaho/Summer Work 23/Raw CSV/P2(1).csv')
+df3 = pd.read_csv('C:/Users/tacob/OneDrive - University of Idaho/Summer Work 23/Raw CSV/P3(1).csv')
 df4 = pd.read_csv('C:/Users/tacob/OneDrive - University of Idaho/Summer Work 23/Raw CSV/Sample Data 4 Python.csv')  # New CSV file with points
 
 # Print the first DataFrame
@@ -34,7 +33,7 @@ df4.sort_values('Date/time', inplace=True)
 
 # Set the desired time frame
 start_date = pd.to_datetime('2022-03-01')
-end_date = pd.to_datetime('2022-05-31')
+end_date = pd.to_datetime('2022-05-7')
 
 # Filter the DataFrame based on the time frame
 df1_filtered = df1[(df1['Date/time'] >= start_date) & (df1['Date/time'] <= end_date)]
@@ -46,26 +45,26 @@ df4_filtered = df4[(df4['Date/time'] >= start_date) & (df4['Date/time'] <= end_d
 
 # Create the line graph
 plt.figure(figsize=(200, 50))
-plt.plot(df1_filtered['Date/time'], df1_filtered['Depth'], linewidth=2, alpha=1, label='Piezometer 4')
-plt.plot(df2_filtered['Date/time'], df2_filtered['Depth'], linewidth=2, alpha=1, label='Piezometer 5')  # Add the line for the second DataFrame
-plt.plot(df3_filtered['Date/time'], df3_filtered['Depth'], linewidth=2, alpha=1, label='Piezometer 6')
+plt.plot(df1_filtered['Date/time'], df1_filtered['Depth'], linewidth=2, alpha=1, label='Piezometer 1')
+plt.plot(df2_filtered['Date/time'], df2_filtered['Depth'], linewidth=2, alpha=1, label='Piezometer 2')  # Add the line for the second DataFrame
+plt.plot(df3_filtered['Date/time'], df3_filtered['Depth'], linewidth=2, alpha=1, label='Piezometer 3')
 
 # Create the scatter plot for the points
 plt.scatter(df4_filtered['Date/time'], df4_filtered['Depth'], c='red', marker='o', s=500, label='Sample Dates')
 
 # Set labels for the axes
 plt.xlabel('\n Date \n', fontsize=70)
-plt.ylabel('\n Depth \n', fontsize=70)
+plt.ylabel('\n Depth (Meters) \n', fontsize=70)
 
 # Set a title for the graph
-plt.title('\n Upstream Flow Depth over Time \n March - May 2022 \n', fontsize=80)
+plt.title('\n Downstream Flow Depth over Time \n March - May 2022 \n', fontsize=80)
 
 # Rotate x-axis labels for better readability (optional)
-plt.xticks(rotation=55)
-plt.xticks(ticks=plt.xticks()[0][::1])
-plt.xticks(fontsize=55)
 
-plt.yticks(fontsize=45)
+date_ticks = pd.date_range(start=start_date, end=end_date, freq='5D')
+plt.xticks(date_ticks, rotation=55, fontsize=55)
+
+plt.yticks(fontsize=55)
 
 plt.grid(True)
 plt.legend(fontsize=65, prop={'size': 90})
